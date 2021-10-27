@@ -1,0 +1,53 @@
+﻿// NativePPTAddin.idl: NativePPTAddin 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(NativePPTAddin.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(3aba0b66-a87b-45dd-9ded-da9637fb88d8),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IConnect : IDispatch
+{
+};
+[
+	uuid(88a0e8ac-0fbd-4973-a824-210f272d5240),
+	version(1.0),
+]
+library NativePPTAddinLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(076d6ae3-6180-44c1-84db-319a3840cefb)
+	]
+    coclass Connect
+    {
+        interface IConnect;
+        [default] interface IRibbonCallback;
+    };
+};
+
+[
+    object,
+    uuid(CE895442-9981-4315-AA85-4B9A5C7739D8),
+    dual,
+    nonextensible,
+    helpstring("IRibbonCallback Interface"),
+    pointer_default(unique)
+]
+interface IRibbonCallback : IDispatch {
+    [id(0x4000), helpstring("Button Callback")] HRESULT ButtonClicked([in]IDispatch *pControl);
+    [id(0x4001), helpstring("GetLabel Callback")] HRESULT GetLabel([in] IDispatch *pControl, [out, retval] BSTR *pbstrReturnedVal);
+    [id(0x4002), helpstring("GetVisible Callback")] HRESULT GetVisible([in] IDispatch *pControl, [out, retval] VARIANT_BOOL *pvarReturnedVal);
+    [id(0x4003), helpstring("GetImage Callback")] HRESULT GetImage([in] IDispatch *pControl, [out, retval] IPictureDisp ** ppdispImage);
+    [id(0x4004), helpstring("customUI LoadImage Callback")] HRESULT CustomUILoadImage([in] BSTR *pbstrImageId, [out, retval] IPictureDisp ** ppdispImage);
+};
+
+import "shobjidl.idl";
