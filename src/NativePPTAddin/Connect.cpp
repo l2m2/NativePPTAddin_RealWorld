@@ -136,8 +136,8 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetImage(IDispatch * control, IPictur
     } else if (idStr == OLESTR("uploadButton")) {
         return ResourceUtil::HrGetImageFromResource(IDB_PNG_UPLOAD, TEXT("PNG"), returnedVal);
     } else if (idStr == OLESTR("updateButton")) {
-        wstring png = PathUtil::GetImageDir() + L"update.png";
-        return ResourceUtil::HrGetImageFromLocal(png.c_str(), returnedVal);
+        wstring bmp = PathUtil::GetImageDir() + L"update.bmp";
+        return ResourceUtil::HrGetImageFromLocal(bmp.c_str(), returnedVal);
     }
     return S_OK;
 }
