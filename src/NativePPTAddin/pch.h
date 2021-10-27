@@ -18,6 +18,8 @@ auto_rename auto_search raw_interfaces_only rename_namespace("AddinDesign")
 using namespace AddinDesign;
 using namespace Office;
 
+using namespace ATL;
+
 #pragma comment(lib, "gdiplus.lib")
 
 #include "UIlib.h"
@@ -38,5 +40,12 @@ using namespace DuiLib;
 
 extern HINSTANCE g_hInstance;
 extern HWND g_hWnd;
+
+#include "Log.h"
+#include "PathUtil.h"
+#include "ResourceUtil.h"
+#include "StringUtil.h"
+
+#define NELEMS(a) (sizeof(a) / sizeof(*a))
 
 #endif //PCH_H

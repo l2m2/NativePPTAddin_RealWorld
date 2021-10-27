@@ -17,6 +17,9 @@
       <UniqueIdentifier>{df3e6da4-0af5-4b5b-9fce-71a4593576a3}</UniqueIdentifier>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{da46833f-7d6d-4a7a-b0e2-1d8778d44d1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -46,6 +49,18 @@
     <ClInclude Include="LoginDialog.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="PathUtil.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceUtil.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtil.h">
+      <Filter>util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NativePPTAddin.cpp">
@@ -66,6 +81,18 @@
     <ClCompile Include="LoginDialog.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="PathUtil.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceUtil.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="StringUtil.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="NativePPTAddin.rc">
@@ -73,13 +100,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="NativePPTAddin.rgs">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="NativePPTAddin.def">
       <Filter>源文件</Filter>
     </None>
-    <None Include="Connect.rgs">
+    <None Include="resource\registry\Connect.rgs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="resource\registry\NativePPTAddin.rgs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
@@ -89,15 +116,11 @@
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="RibbonManifest.xml" />
-    <Xml Include="LoginDialog.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="images\login.png">
+    <Xml Include="resource\ribbon\RibbonManifest.xml">
       <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="images\upload.png">
+    </Xml>
+    <Xml Include="resource\duilib\LoginDialog.xml">
       <Filter>资源文件</Filter>
-    </Image>
+    </Xml>
   </ItemGroup>
 </Project>

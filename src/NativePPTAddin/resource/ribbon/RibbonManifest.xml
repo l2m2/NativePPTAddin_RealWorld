@@ -4,11 +4,11 @@
     <tabs>
       <tab id="NativePPTAddinTab" label="Native测试">
         <group id="userGroup" label="用户">
-          <button id="loginButton" screentip="登录" getLabel="GetLabel" getVisible="GetVisible" image="204" size="large" onAction="ButtonClicked" />
+          <button id="loginButton" getLabel="GetLabel" getVisible="GetVisible" image="204" size="large" onAction="ButtonClicked" />
         </group>
         <group id="actionGroup" label="操作">
-          <button id="uploadButton" screentip="上传" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
-          <button id="updateButton" screentip="更新" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
+          <button id="uploadButton" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
+          <button id="updateButton" getLabel="GetLabel" getVisible="GetVisible" getImage="GetImage" size="large" onAction="ButtonClicked" />
         </group>
       </tab>
     </tabs>

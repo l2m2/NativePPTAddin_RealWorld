@@ -8,8 +8,8 @@
     <HorizontalLayout height="52" bkcolor="#FF0288D1">
       <Label text="登录测试框" textcolor="0xFFFFFFFF" padding="20,0,0,0" font="1" />
       <Control />
-      <Button name="minBtn" width="10" height="10" padding="0,21,20,0" normalimage="images\minimize.png" />
-      <Button name="closeBtn" width="10" height="10" padding="0,21,20,0" normalimage="images\close.png" />
+      <Button name="minBtn" width="10" height="10" padding="0,21,20,0" normalimage="image\minimize.png" />
+      <Button name="closeBtn" width="10" height="10" padding="0,21,20,0" normalimage="image\close.png" />
     </HorizontalLayout>
     <VerticalLayout bkcolor="0xFFFFFFFF">
       <Edit name="usernameEdit" height="48" font="3" padding="20,30,20,0" bordercolor="0xFF808080" bottombordersize="1" />
