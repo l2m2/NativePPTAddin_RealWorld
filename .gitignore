@@ -18,7 +18,7 @@
 x64/
 x86/
 bld/
-# [Bb]in/
+[Bb]in/
 [Oo]bj/
 [Ll]og/
 
@@ -260,7 +260,8 @@ paket-files/
 __pycache__/
 *.pyc
 
-!thirdparty/**/*.pdb
-!thirdparty/**/*.lib
+!thirdparty/**/bin/
+!thirdparty/**/Debug/
+!thirdparty/**/Release/
 !thirdparty/**/*.tlb
 !thirdparty/**/*.tlh
