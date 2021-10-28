@@ -7,8 +7,12 @@ set THIRDPARTY=%~dp0..\thirdparty\
 if exist "%DST%" rmdir /S /Q "%DST%"
 mkdir "%DST%"
 
-xcopy "%THIRDPARTY%duilib\bin\DuiLib_d.dll" "%DST%" /Y
-xcopy "%THIRDPARTY%duilib\bin\DuiLib_d.pdb" "%DST%" /Y
+if "%Configuration%" == "Debug" (
+  xcopy "%THIRDPARTY%duilib\bin\DuiLib_d.dll" "%DST%" /Y
+  xcopy "%THIRDPARTY%duilib\bin\DuiLib_d.pdb" "%DST%" /Y
+) else (
+  xcopy "%THIRDPARTY%duilib\bin\DuiLib.dll" "%DST%" /Y
+)
 
 xcopy %~dp0..\src\NativePPTAddin\resource\image "%DST%image\" /Y
 
