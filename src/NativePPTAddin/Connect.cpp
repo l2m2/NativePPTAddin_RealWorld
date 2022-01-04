@@ -6,19 +6,19 @@
 #include "LoginDialog.h"
 
 namespace {
-    void ShowLoginDialog()
-    {
-        DuiLib::CPaintManagerUI::SetInstance(g_hInstance);
-        TCHAR szPath[MAX_PATH] = { 0 };
-        GetModuleFileName(g_hInstance, szPath, _countof(szPath));
-        *_tcsrchr(szPath, _T('\\')) = 0;
-        DuiLib::CPaintManagerUI::SetResourcePath(szPath);
-        LoginDialog dialog;
-        dialog.Create(g_hWnd, _T("登录"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
-        dialog.CenterWindow();
-        dialog.ShowModal();
-        //DuiLib::CPaintManagerUI::MessageLoop();
-    }
+void ShowLoginDialog()
+{
+    DuiLib::CPaintManagerUI::SetInstance(g_hInstance);
+    TCHAR szPath[MAX_PATH] = { 0 };
+    GetModuleFileName(g_hInstance, szPath, _countof(szPath));
+    *_tcsrchr(szPath, _T('\\')) = 0;
+    DuiLib::CPaintManagerUI::SetResourcePath(szPath);
+    LoginDialog dialog;
+    dialog.Create(::GetActiveWindow(), _T("登录"), UI_WNDSTYLE_DIALOG, WS_EX_WINDOWEDGE);
+    dialog.CenterWindow();
+    dialog.ShowModal();
+    //DuiLib::CPaintManagerUI::MessageLoop();
+}
 } // End of anonymous namespace
 
 // CConnect
@@ -36,37 +36,37 @@ void CConnect::FinalRelease()
 {
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::OnConnection(LPDISPATCH Application, ext_ConnectMode ConnectMode, LPDISPATCH AddInInst, SAFEARRAY ** custom)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::OnConnection(LPDISPATCH Application, ext_ConnectMode ConnectMode, LPDISPATCH AddInInst, SAFEARRAY** custom)
 {
     LOG_INFO("");
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::OnDisconnection(ext_DisconnectMode RemoveMode, SAFEARRAY ** custom)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::OnDisconnection(ext_DisconnectMode RemoveMode, SAFEARRAY** custom)
 {
     LOG_INFO("");
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::OnAddInsUpdate(SAFEARRAY ** custom)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::OnAddInsUpdate(SAFEARRAY** custom)
 {
     LOG_INFO("");
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::OnStartupComplete(SAFEARRAY ** custom)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::OnStartupComplete(SAFEARRAY** custom)
 {
     LOG_INFO("");
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::OnBeginShutdown(SAFEARRAY ** custom)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::OnBeginShutdown(SAFEARRAY** custom)
 {
     LOG_INFO("");
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::GetCustomUI(BSTR RibbonID, BSTR * RibbonXml)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::GetCustomUI(BSTR RibbonID, BSTR* RibbonXml)
 {
     if (!RibbonXml)
         return E_POINTER;
@@ -74,7 +74,7 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetCustomUI(BSTR RibbonID, BSTR * Rib
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::ButtonClicked(IDispatch * control)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::ButtonClicked(IDispatch* control)
 {
     CComQIPtr<IRibbonControl> ribbonCtl(control);
     CComBSTR idStr;
@@ -90,7 +90,7 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::ButtonClicked(IDispatch * control)
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::GetLabel(IDispatch * control, BSTR * returnedVal)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::GetLabel(IDispatch* control, BSTR* returnedVal)
 {
     CComQIPtr<IRibbonControl> ribbonCtl(control);
     CComBSTR idStr;
@@ -108,7 +108,7 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetLabel(IDispatch * control, BSTR * 
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::GetVisible(IDispatch * control, VARIANT_BOOL * returnedVal)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::GetVisible(IDispatch* control, VARIANT_BOOL* returnedVal)
 {
     CComQIPtr<IRibbonControl> ribbonCtl(control);
     CComBSTR idStr;
@@ -124,7 +124,7 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetVisible(IDispatch * control, VARIA
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::GetImage(IDispatch * control, IPictureDisp ** returnedVal)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::GetImage(IDispatch* control, IPictureDisp** returnedVal)
 {
     CComQIPtr<IRibbonControl> ribbonCtl(control);
     CComBSTR idStr;
@@ -142,7 +142,7 @@ STDMETHODIMP_(HRESULT __stdcall) CConnect::GetImage(IDispatch * control, IPictur
     return S_OK;
 }
 
-STDMETHODIMP_(HRESULT __stdcall) CConnect::CustomUILoadImage(BSTR * imageId, IPictureDisp ** returnedVal)
+STDMETHODIMP_(HRESULT __stdcall) CConnect::CustomUILoadImage(BSTR* imageId, IPictureDisp** returnedVal)
 {
     return ResourceUtil::HrGetImageFromResource(_wtoi(*imageId), TEXT("PNG"), returnedVal);
 }
