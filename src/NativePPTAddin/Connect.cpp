@@ -14,7 +14,7 @@ void ShowLoginDialog()
     *_tcsrchr(szPath, _T('\\')) = 0;
     DuiLib::CPaintManagerUI::SetResourcePath(szPath);
     LoginDialog dialog;
-    dialog.Create(::GetActiveWindow(), _T("登录"), UI_WNDSTYLE_DIALOG, WS_EX_WINDOWEDGE);
+    dialog.CreateDuiWindow(::GetActiveWindow(), _T("登录"), WS_POPUPWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, 0);
     dialog.CenterWindow();
     dialog.ShowModal();
     //DuiLib::CPaintManagerUI::MessageLoop();

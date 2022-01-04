@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Window size="400,320" caption="0,0,0,60" bktrans="true">
+<Window size="400,320" caption="0,0,0,60" shadowsize="4" shadowdarkness="64" showshadow="true">
   <Font name="微软雅黑" id="0" size="18" default="true" />
   <Font name="微软雅黑" id="1" size="16" />
   <Font name="微软雅黑" id="2" size="18" bold="true" />
