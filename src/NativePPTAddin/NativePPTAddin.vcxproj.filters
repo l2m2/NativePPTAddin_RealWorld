@@ -49,9 +49,6 @@
     <ClInclude Include="LoginDialog.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Log.h">
-      <Filter>util</Filter>
-    </ClInclude>
     <ClInclude Include="PathUtil.h">
       <Filter>util</Filter>
     </ClInclude>
@@ -80,9 +77,6 @@
     </ClCompile>
     <ClCompile Include="LoginDialog.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="PathUtil.cpp">
       <Filter>util</Filter>

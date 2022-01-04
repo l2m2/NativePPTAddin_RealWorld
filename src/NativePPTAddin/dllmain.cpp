@@ -19,6 +19,9 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpRes
     ULONG_PTR gdiplusToken;
     Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
+    //auto logger = spdlog::daily_logger_mt("daily_logger", "logs/daily.txt", 0, 30);
+    //spdlog::set_default_logger(logger);
+
     g_hInstance = hInstance;
     return _AtlModule.DllMain(dwReason, lpReserved);
 }

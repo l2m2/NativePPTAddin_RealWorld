@@ -39,9 +39,10 @@ using namespace DuiLib;
 #endif
 
 extern HINSTANCE g_hInstance;
-extern HWND g_hWnd;
 
-#include "Log.h"
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/daily_file_sink.h>
+
 #include "PathUtil.h"
 #include "ResourceUtil.h"
 #include "StringUtil.h"

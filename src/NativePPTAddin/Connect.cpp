@@ -38,31 +38,35 @@ void CConnect::FinalRelease()
 
 STDMETHODIMP_(HRESULT __stdcall) CConnect::OnConnection(LPDISPATCH Application, ext_ConnectMode ConnectMode, LPDISPATCH AddInInst, SAFEARRAY** custom)
 {
-    LOG_INFO("");
+    std::string filename = StringUtil::wstring2string(PathUtil::GetLogDir()) + "NativePPTAddin_daily.txt";
+    auto logger = spdlog::daily_logger_mt("daily_logger", filename, 0, 30);
+    spdlog::set_default_logger(logger);
+
+    spdlog::info("OnConnection");
     return S_OK;
 }
 
 STDMETHODIMP_(HRESULT __stdcall) CConnect::OnDisconnection(ext_DisconnectMode RemoveMode, SAFEARRAY** custom)
 {
-    LOG_INFO("");
+    spdlog::info("OnDisconnection");
     return S_OK;
 }
 
 STDMETHODIMP_(HRESULT __stdcall) CConnect::OnAddInsUpdate(SAFEARRAY** custom)
 {
-    LOG_INFO("");
+    spdlog::info("OnAddInsUpdate");
     return S_OK;
 }
 
 STDMETHODIMP_(HRESULT __stdcall) CConnect::OnStartupComplete(SAFEARRAY** custom)
 {
-    LOG_INFO("");
+    spdlog::info("OnStartupComplete");
     return S_OK;
 }
 
 STDMETHODIMP_(HRESULT __stdcall) CConnect::OnBeginShutdown(SAFEARRAY** custom)
 {
-    LOG_INFO("");
+    spdlog::info("OnBeginShutdown");
     return S_OK;
 }
 
